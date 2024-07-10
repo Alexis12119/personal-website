@@ -77,7 +77,7 @@ function Contact() {
           <FaPaperPlane />
           <span>Submit</span>
         </button>
-        {status && <p className="text-center text-red-500">{status}</p>}
+        {status && <p className="text-center text-gray-100">{status}</p>}
       </form>
     </section>
   );

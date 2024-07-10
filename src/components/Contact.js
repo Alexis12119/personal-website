@@ -20,11 +20,11 @@ function Contact() {
     if (formData.name && formData.email && formData.message) {
       // Simulate form submission
       setTimeout(() => {
-        setStatus('Message sent successfully!');
+        setStatus({ type: 'success', message: 'Message sent successfully!' });
         setFormData({ name: '', email: '', message: '' });
       }, 1000);
     } else {
-      setStatus('Please fill in all fields.');
+      setStatus({ type: 'error', message: 'Please fill in all fields.' });
     }
   };
 
@@ -77,7 +77,11 @@ function Contact() {
           <FaPaperPlane />
           <span>Submit</span>
         </button>
-        {status && <p className="text-center text-gray-100">{status}</p>}
+        {status && (
+          <p className={`text-center ${status.type === 'error' ? 'text-red-500 dark:text-red-400' : 'text-green-500 dark:text-green-400'}`}>
+            {status.message}
+          </p>
+        )}
       </form>
     </section>
   );

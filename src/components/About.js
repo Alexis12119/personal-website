@@ -15,15 +15,24 @@ function About() {
         </h2>
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center">
-        <motion.div>
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="mb-6 md:mb-0 md:mr-8"
+        >
           <LazyLoadImage
             src={profilePicture}
             alt="Profile"
             effect="blur"
-            className="w-32 h-32 md:w-48 md:h-48 rounded-full mb-6 md:mb-0 md:mr-8"
+            className="w-32 h-32 md:w-48 md:h-48 rounded-full shadow-lg"
           />
         </motion.div>
-        <motion.div className="max-w-md text-center md:text-left">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="max-w-md text-center md:text-left"
+        >
           <p className="text-lg mb-4 text-gray-900 dark:text-gray-100">
             Hi, I'm Alexis Corporal, a passionate developer currently studying
             at Pamantasan ng Lungsod ng San Pablo. I thrive on creating

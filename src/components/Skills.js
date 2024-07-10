@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaPython, FaReact, FaJava, FaHtml5, FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { SiC, SiCplusplus, SiCsharp, SiFlutter, SiTailwindcss, SiCss3, SiGo } from 'react-icons/si';
+import { motion } from 'framer-motion';
 
 function Skills() {
   const skills = [
@@ -23,7 +24,7 @@ function Skills() {
     setIsExpanded(!isExpanded);
   };
 
-  const visibleSkills = isExpanded ? skills : skills.slice(0, 3);
+  const visibleSkills = isExpanded ? skills : skills.slice(0, 6);
 
   return (
     <section id="skills" className="p-8 bg-gray-200 dark:bg-gray-800">
@@ -36,19 +37,23 @@ function Skills() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {visibleSkills.map((skill, index) => (
-          <div key={index} className="p-4">
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            className="p-4"
+          >
             <div className="flex flex-col items-center bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="text-5xl text-blue-500 mb-2">{skill.icon}</div>
               <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">{skill.name}</p>
               <p className="text-sm text-gray-600 dark:text-gray-400">{skill.level}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
       <div className="flex justify-center mt-4">
         <button
           onClick={toggleExpand}
-          className="flex items-center text-blue-500 dark:text-blue-400 focus:outline-none"
+          className="flex items-center text-blue-500 dark:text-blue-400 focus:outline-none transition-transform transform hover:scale-110"
         >
           {isExpanded ? <FaArrowUp size={24} /> : <FaArrowDown size={24} />}
           <span className="ml-2">{isExpanded ? 'Show Less' : 'Show More'}</span>

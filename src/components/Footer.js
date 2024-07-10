@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="bg-gray-800 dark:bg-gray-900 text-white dark:text-gray-300 py-8">
       <div className="container mx-auto flex flex-col items-center space-y-4">
-        <p className="text-lg">&copy; {currentYear} My Portfolio. All rights reserved.</p>
+        <p className="text-lg">&copy; {currentYear} Alexis Corporal. All rights reserved.</p>
         <div className="flex space-x-4">
           <a
             href="https://twitter.com"

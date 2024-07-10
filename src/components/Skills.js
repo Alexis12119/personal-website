@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaPython, FaReact, FaJava, FaHtml5, FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { SiC, SiCplusplus, SiCsharp, SiFlutter, SiTailwindcss, SiCss3, SiGo } from 'react-icons/si';
 import { motion } from 'framer-motion';
@@ -19,15 +19,22 @@ function Skills() {
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const skillsRef = useRef(null);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const visibleSkills = isExpanded ? skills : skills.slice(0, 6);
+  useEffect(() => {
+    if (skillsRef.current) {
+      skillsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [isExpanded]);
+
+  const visibleSkills = isExpanded ? skills : skills.slice(0, 3);
 
   return (
-    <section id="skills" className="p-8 bg-gray-200 dark:bg-gray-800">
+    <section id="skills" className="p-8 bg-gray-200 dark:bg-gray-800" ref={skillsRef}>
       <div className="flex justify-center">
         <h2 className="relative text-2xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
           <span className="inline-block p-4 border-4 border-current rounded-full">

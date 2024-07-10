@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { FaReact, FaNodeJs, FaCss3Alt, FaPython, FaHtml5, FaArrowDown, FaArrowUp } from 'react-icons/fa';
@@ -97,15 +97,22 @@ function Projects() {
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const projectsRef = useRef(null);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
+  useEffect(() => {
+    if (projectsRef.current) {
+      projectsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [isExpanded]);
+
   const visibleProjects = isExpanded ? projectList : projectList.slice(0, 2);
 
   return (
-    <section id="projects" className="p-8 bg-gray-100 dark:bg-gray-900">
+    <section id="projects" className="p-8 bg-gray-100 dark:bg-gray-900" ref={projectsRef}>
       <div className="flex justify-center">
         <h2 className="relative text-2xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
           <span className="inline-block p-4 border-4 border-current rounded-full">

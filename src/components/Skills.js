@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaPython, FaReact, FaJava, FaHtml5, FaArrowDown, FaArrowUp } from 'react-icons/fa';
-import { SiC, SiCplusplus, SiCsharp, SiFlutter, SiTailwindcss, SiCss3, SiGo } from 'react-icons/si';
+import { FaPython, FaReact, FaJava, FaHtml5, FaArrowDown, FaArrowUp, FaGitAlt, FaLinux } from 'react-icons/fa';
+import { SiC, SiCplusplus, SiCsharp, SiFlutter, SiTailwindcss, SiCss3, SiGo, SiGnubash, SiLua } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
 function Skills() {
   const skills = [
     { icon: <FaPython />, name: 'Python', level: 'Advanced' },
     { icon: <FaReact />, name: 'ReactJS', level: 'Intermediate' },
-    { icon: <SiC />, name: 'C', level: 'Intermediate' },
-    { icon: <SiCplusplus />, name: 'C++', level: 'Intermediate' },
+    { icon: <SiC />, name: 'C', level: 'Advanced' },
+    { icon: <SiCplusplus />, name: 'C++', level: 'Advanced' },
     { icon: <SiCsharp />, name: 'C#', level: 'Beginner' },
     { icon: <FaJava />, name: 'Java', level: 'Intermediate' },
     { icon: <SiFlutter />, name: 'Flutter', level: 'Intermediate' },
@@ -16,6 +16,10 @@ function Skills() {
     { icon: <SiTailwindcss />, name: 'TailwindCSS', level: 'Intermediate' },
     { icon: <SiCss3 />, name: 'CSS', level: 'Advanced' },
     { icon: <SiGo />, name: 'Go', level: 'Beginner' },
+    { icon: <SiLua />, name: 'Lua', level: 'Advanced' },
+    { icon: <FaGitAlt />, name: 'Git', level: 'Advanced' },
+    { icon: <FaLinux />, name: 'Linux', level: 'Advanced' },
+    { icon: <SiGnubash />, name: 'Bash', level: 'Advanced' },
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);

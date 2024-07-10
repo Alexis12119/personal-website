@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { FaReact, FaNodeJs, FaCss3Alt, FaPython, FaHtml5 } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaCss3Alt, FaPython, FaHtml5, FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { DiDjango } from 'react-icons/di';
 
 function Projects() {
@@ -28,7 +28,81 @@ function Projects() {
         { name: 'HTML', icon: <FaHtml5 /> },
       ],
     },
+    {
+      title: 'Project 3',
+      description: 'Description for project 3',
+      image: 'project3.jpg',
+      link: '',
+      technologies: [
+        { name: 'React', icon: <FaReact /> },
+        { name: 'Node.js', icon: <FaNodeJs /> },
+        { name: 'CSS', icon: <FaCss3Alt /> },
+      ],
+    },
+    {
+      title: 'Project 4',
+      description: 'Description for project 4',
+      image: 'project4.jpg',
+      link: '',
+      technologies: [
+        { name: 'Python', icon: <FaPython /> },
+        { name: 'Django', icon: <DiDjango /> },
+        { name: 'HTML', icon: <FaHtml5 /> },
+      ],
+    },
+    {
+      title: 'Project 5',
+      description: 'Description for project 5',
+      image: 'project5.jpg',
+      link: '',
+      technologies: [
+        { name: 'React', icon: <FaReact /> },
+        { name: 'Node.js', icon: <FaNodeJs /> },
+        { name: 'CSS', icon: <FaCss3Alt /> },
+      ],
+    },
+    {
+      title: 'Project 6',
+      description: 'Description for project 6',
+      image: 'project6.jpg',
+      link: '',
+      technologies: [
+        { name: 'Python', icon: <FaPython /> },
+        { name: 'Django', icon: <DiDjango /> },
+        { name: 'HTML', icon: <FaHtml5 /> },
+      ],
+    },
+    {
+      title: 'Project 7',
+      description: 'Description for project 7',
+      image: 'project7.jpg',
+      link: '',
+      technologies: [
+        { name: 'React', icon: <FaReact /> },
+        { name: 'Node.js', icon: <FaNodeJs /> },
+        { name: 'CSS', icon: <FaCss3Alt /> },
+      ],
+    },
+    {
+      title: 'Project 8',
+      description: 'Description for project 8',
+      image: 'project8.jpg',
+      link: '',
+      technologies: [
+        { name: 'Python', icon: <FaPython /> },
+        { name: 'Django', icon: <DiDjango /> },
+        { name: 'HTML', icon: <FaHtml5 /> },
+      ],
+    },
   ];
+
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const visibleProjects = isExpanded ? projectList : projectList.slice(0, 2);
 
   return (
     <section id="projects" className="p-8 bg-gray-100 dark:bg-gray-900">
@@ -40,7 +114,7 @@ function Projects() {
         </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projectList.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <div
             key={index}
             className="border p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800"
@@ -71,6 +145,15 @@ function Projects() {
             </a>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center mt-4">
+        <button
+          onClick={toggleExpand}
+          className="flex items-center text-blue-500 dark:text-blue-400 focus:outline-none"
+        >
+          {isExpanded ? <FaArrowUp size={24} /> : <FaArrowDown size={24} />}
+          <span className="ml-2">{isExpanded ? 'Show Less' : 'Show More'}</span>
+        </button>
       </div>
     </section>
   );

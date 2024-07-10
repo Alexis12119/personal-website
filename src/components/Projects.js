@@ -1,4 +1,6 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function Projects() {
   const projectList = [
@@ -15,7 +17,12 @@ function Projects() {
             key={index}
             className="border p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800"
           >
-            <img src={project.image} alt={project.title} className="mb-4 rounded" />
+            <LazyLoadImage
+              src={project.image}
+              alt={project.title}
+              effect="blur"
+              className="mb-4 rounded"
+            />
             <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{project.title}</h3>
             <p className="text-gray-900 dark:text-gray-100">{project.description}</p>
           </div>

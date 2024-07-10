@@ -21,7 +21,7 @@ function App() {
             <ParallaxSection bgImage={bgImage}>
               <h1 className="text-5xl font-bold text-white">
                 <Typewriter
-                  words={["Welcome to My Portfolio"]}
+                  words={["Welcome to My World"]}
                   loop={false}
                   cursor
                   cursorStyle="_"

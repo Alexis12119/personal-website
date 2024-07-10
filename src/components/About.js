@@ -23,7 +23,7 @@ function About() {
           <p className="text-lg mb-4 text-gray-900 dark:text-gray-100">
             Hi, I'm Alexis Corporal, a passionate developer who's currently in
             Pamantasan ng Lungsod ng San Pablo. I like to create innovative
-            things with my programming skills to help others.
+            things with my programming skills.
           </p>
           <p className="text-lg text-gray-900 dark:text-gray-100">
             When I'm not coding, you can find me exploring new technologies and

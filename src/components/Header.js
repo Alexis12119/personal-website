@@ -5,7 +5,7 @@ import { smoothScroll } from "../utils/smoothScroll";
 
 function Header() {
   return (
-    <header className="bg-gradient-to-r from-gray-800 via-gray-900 to-black dark:from-gray-200 dark:via-gray-300 dark:to-gray-400 text-white dark:text-black p-4 fixed top-0 left-0 right-0 z-50 shadow-md">
+    <header className="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 dark:from-gray-800 dark:via-gray-900 dark:to-black text-black dark:text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-md">
       <nav className="container mx-auto flex justify-between items-center">
         <button onClick={() => smoothScroll('home')} className="flex items-center space-x-2 text-2xl md:text-3xl hover:text-gray-400 cursor-pointer">
           <FaCode />

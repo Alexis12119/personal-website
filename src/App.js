@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ParallaxSection from "./components/ParallaxSection";
 import bgImage from "./assets/img/biel-morro-J_F_003jcEQ-unsplash.jpg";
+import "./App.css"
 
 function App() {
   return (
@@ -29,10 +30,18 @@ function App() {
             </h1>
           </ParallaxSection>
         </section>
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+        <section id="about">
+          <About />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
       <Footer />
     </div>

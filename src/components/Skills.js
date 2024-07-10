@@ -19,17 +19,20 @@ function Skills() {
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const [shouldScroll, setShouldScroll] = useState(false);
   const skillsRef = useRef(null);
 
   const toggleExpand = () => {
+    setShouldScroll(isExpanded); // Only set shouldScroll to true when collapsing (show less)
     setIsExpanded(!isExpanded);
   };
 
   useEffect(() => {
-    if (skillsRef.current) {
+    if (shouldScroll && skillsRef.current) {
       skillsRef.current.scrollIntoView({ behavior: 'smooth' });
+      setShouldScroll(false); // Reset shouldScroll after scrolling
     }
-  }, [isExpanded]);
+  }, [shouldScroll]);
 
   const visibleSkills = isExpanded ? skills : skills.slice(0, 3);
 

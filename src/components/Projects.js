@@ -97,18 +97,20 @@ function Projects() {
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const [shouldScroll, setShouldScroll] = useState(false);
   const projectsRef = useRef(null);
 
   const toggleExpand = () => {
+    setShouldScroll(isExpanded); // Only set shouldScroll to true when collapsing (show less)
     setIsExpanded(!isExpanded);
   };
 
   useEffect(() => {
-    if (projectsRef.current) {
+    if (shouldScroll && projectsRef.current) {
       projectsRef.current.scrollIntoView({ behavior: 'smooth' });
+      setShouldScroll(false); // Reset shouldScroll after scrolling
     }
-  }, [isExpanded]);
-
+  }, [shouldScroll]);
   const visibleProjects = isExpanded ? projectList : projectList.slice(0, 2);
 
   return (

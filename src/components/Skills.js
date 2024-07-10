@@ -23,7 +23,7 @@ function Skills() {
     setIsExpanded(!isExpanded);
   };
 
-  const visibleSkills = isExpanded ? skills : skills.slice(0, 9);
+  const visibleSkills = isExpanded ? skills : skills.slice(0, 3);
 
   return (
     <section id="skills" className="p-8 bg-gray-200 dark:bg-gray-800">

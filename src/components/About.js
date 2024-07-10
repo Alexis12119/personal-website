@@ -7,9 +7,13 @@ import profilePicture from "../assets/img/profiles.jpg";
 function About() {
   return (
     <section id="about" className="p-8 bg-gray-100 dark:bg-gray-900">
-      <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
-        About Me
-      </h2>
+      <div className="flex justify-center">
+        <h2 className="relative text-2xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
+          <span className="inline-block p-4 border-4 border-current rounded-full">
+            About Me
+          </span>
+        </h2>
+      </div>
       <div className="flex flex-col md:flex-row items-center justify-center">
         <motion.div>
           <LazyLoadImage
@@ -21,9 +25,9 @@ function About() {
         </motion.div>
         <motion.div className="max-w-md text-center md:text-left">
           <p className="text-lg mb-4 text-gray-900 dark:text-gray-100">
-            Hi, I'm Alexis Corporal, a passionate developer who's currently in
-            Pamantasan ng Lungsod ng San Pablo. I like to create innovative
-            things with my programming skills.
+            Hi, I'm Alexis Corporal, a passionate developer currently studying
+            at Pamantasan ng Lungsod ng San Pablo. I thrive on creating
+            innovative solutions and constantly enhancing my programming skills.
           </p>
           <p className="text-lg text-gray-900 dark:text-gray-100">
             When I'm not coding, you can find me exploring new technologies and

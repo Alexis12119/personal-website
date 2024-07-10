@@ -8,7 +8,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ParallaxSection from "./components/ParallaxSection";
-import bgImage from "./assets/img/biel-morro-J_F_003jcEQ-unsplash.jpg";
+import bgImage from "./assets/img/windows.jpg";
 import "./App.css";
 
 function App() {
@@ -19,17 +19,19 @@ function App() {
         <LazyLoadComponent>
           <section id="home">
             <ParallaxSection bgImage={bgImage}>
-              <h1 className="text-5xl font-bold text-white">
-                <Typewriter
-                  words={["Welcome to My World"]}
-                  loop={false}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={120}
-                  deleteSpeed={70}
-                  delaySpeed={1500}
-                />
-              </h1>
+              <div className="flex justify-center items-center h-screen">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white">
+                  <Typewriter
+                    words={["Welcome to My World"]}
+                    loop={false}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={120}
+                    deleteSpeed={70}
+                    delaySpeed={1500}
+                  />
+                </h1>
+              </div>
             </ParallaxSection>
           </section>
         </LazyLoadComponent>

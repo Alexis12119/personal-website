@@ -1,9 +1,6 @@
-import React from 'react';
-import Slider from 'react-slick';
-import { FaPython, FaReact, FaJava, FaHtml5 } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaPython, FaReact, FaJava, FaHtml5, FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { SiC, SiCplusplus, SiCsharp, SiFlutter, SiTailwindcss, SiCss3, SiGo } from 'react-icons/si';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 function Skills() {
   const skills = [
@@ -20,29 +17,13 @@ function Skills() {
     { icon: <SiGo />, name: 'Go', level: 'Beginner' },
   ];
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
   };
+
+  const visibleSkills = isExpanded ? skills : skills.slice(0, 9);
 
   return (
     <section id="skills" className="p-8 bg-gray-200 dark:bg-gray-800">
@@ -53,8 +34,8 @@ function Skills() {
           </span>
         </h2>
       </div>
-      <Slider {...settings}>
-        {skills.map((skill, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {visibleSkills.map((skill, index) => (
           <div key={index} className="p-4">
             <div className="flex flex-col items-center bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="text-5xl text-blue-500 mb-2">{skill.icon}</div>
@@ -63,7 +44,16 @@ function Skills() {
             </div>
           </div>
         ))}
-      </Slider>
+      </div>
+      <div className="flex justify-center mt-4">
+        <button
+          onClick={toggleExpand}
+          className="flex items-center text-blue-500 dark:text-blue-400 focus:outline-none"
+        >
+          {isExpanded ? <FaArrowUp size={24} /> : <FaArrowDown size={24} />}
+          <span className="ml-2">{isExpanded ? 'Show Less' : 'Show More'}</span>
+        </button>
+      </div>
     </section>
   );
 }

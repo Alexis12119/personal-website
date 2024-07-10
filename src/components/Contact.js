@@ -22,9 +22,19 @@ function Contact() {
       setTimeout(() => {
         setStatus({ type: 'success', message: 'Message sent successfully!' });
         setFormData({ name: '', email: '', message: '' });
+
+        // Clear status message after 5 seconds
+        setTimeout(() => {
+          setStatus(null);
+        }, 5000);
       }, 1000);
     } else {
       setStatus({ type: 'error', message: 'Please fill in all fields.' });
+
+      // Clear status message after 5 seconds
+      setTimeout(() => {
+        setStatus(null);
+      }, 5000);
     }
   };
 

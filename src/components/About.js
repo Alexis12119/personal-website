@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
-import profilePicture from "../assets/img/profiles.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 
 function About() {
   return (
@@ -20,11 +19,9 @@ function About() {
           whileTap={{ scale: 0.9 }}
           className="mb-6 md:mb-0 md:mr-8"
         >
-          <LazyLoadImage
-            src={profilePicture}
-            alt="Profile"
-            effect="blur"
-            className="w-32 h-32 md:w-48 md:h-48 rounded-full shadow-lg"
+          <FontAwesomeIcon
+            icon={faLaptopCode}
+            className="w-32 h-32 md:w-48 md:h-48 text-gray-900 dark:text-gray-100"
           />
         </motion.div>
         <motion.div

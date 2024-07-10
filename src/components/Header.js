@@ -5,22 +5,23 @@ import { smoothScroll } from "../utils/smoothScroll";
 
 function Header() {
   return (
-    <header className="bg-gray-800 dark:bg-gray-200 text-white dark:text-black p-4 fixed top-0 left-0 right-0 z-50">
-      <nav className="flex justify-between items-center">
-        <button onClick={() => smoothScroll('home')} className="text-3xl hover:text-gray-400 cursor-pointer">
+    <header className="bg-gradient-to-r from-gray-800 via-gray-900 to-black dark:from-gray-200 dark:via-gray-300 dark:to-gray-400 text-white dark:text-black p-4 fixed top-0 left-0 right-0 z-50 shadow-md">
+      <nav className="container mx-auto flex justify-between items-center">
+        <button onClick={() => smoothScroll('home')} className="flex items-center space-x-2 text-2xl md:text-3xl hover:text-gray-400 cursor-pointer">
           <FaCode />
+          <span className="hidden md:inline text-xl font-semibold">Alexis</span>
         </button>
-        <div className="flex items-center space-x-4">
-          <button onClick={() => smoothScroll('home')} className="hover:text-gray-400 cursor-pointer">
+        <div className="flex items-center space-x-4 md:space-x-6">
+          <button onClick={() => smoothScroll('home')} className="hover:text-gray-400 cursor-pointer transition-transform transform hover:scale-110">
             <FaHome />
           </button>
-          <button onClick={() => smoothScroll('about')} className="hover:text-gray-400 cursor-pointer">
+          <button onClick={() => smoothScroll('about')} className="hover:text-gray-400 cursor-pointer transition-transform transform hover:scale-110">
             <FaUser />
           </button>
-          <button onClick={() => smoothScroll('projects')} className="hover:text-gray-400 cursor-pointer">
+          <button onClick={() => smoothScroll('projects')} className="hover:text-gray-400 cursor-pointer transition-transform transform hover:scale-110">
             <FaProjectDiagram />
           </button>
-          <button onClick={() => smoothScroll('contact')} className="hover:text-gray-400 cursor-pointer">
+          <button onClick={() => smoothScroll('contact')} className="hover:text-gray-400 cursor-pointer transition-transform transform hover:scale-110">
             <FaEnvelope />
           </button>
           <DarkModeToggle />

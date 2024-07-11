@@ -158,7 +158,7 @@ function Projects() {
       <div className="flex justify-center mt-4">
         <button
           onClick={toggleExpand}
-          className="flex items-center text-blue-500 dark:text-blue-400 focus:outline-none"
+          className="flex items-center text-blue-500 dark:text-blue-400 focus:outline-none transition-transform transform hover:scale-110"
         >
           {isExpanded ? <FaArrowUp size={24} /> : <FaArrowDown size={24} />}
           <span className="ml-2">{isExpanded ? 'Show Less' : 'Show More'}</span>

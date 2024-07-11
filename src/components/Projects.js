@@ -101,22 +101,23 @@ function Projects() {
   const projectsRef = useRef(null);
 
   const toggleExpand = () => {
-    setShouldScroll(isExpanded); // Only set shouldScroll to true when collapsing (show less)
+    setShouldScroll(isExpanded);
     setIsExpanded(!isExpanded);
   };
 
   useEffect(() => {
     if (shouldScroll && projectsRef.current) {
       projectsRef.current.scrollIntoView({ behavior: 'smooth' });
-      setShouldScroll(false); // Reset shouldScroll after scrolling
+      setShouldScroll(false);
     }
   }, [shouldScroll]);
+
   const visibleProjects = isExpanded ? projectList : projectList.slice(0, 2);
 
   return (
-    <section id="projects" className="p-8 bg-gray-100 dark:bg-gray-900" ref={projectsRef}>
-      <div className="flex justify-center">
-        <h2 className="relative text-2xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
+    <section id="projects" className="p-8 bg-gray-200 dark:bg-gray-800" ref={projectsRef}>
+      <div className="flex justify-center mb-8">
+        <h2 className="relative text-3xl font-extrabold text-center text-gray-900 dark:text-gray-100">
           <span className="inline-block p-4 border-4 border-current rounded-full">
             Projects
           </span>
@@ -126,19 +127,19 @@ function Projects() {
         {visibleProjects.map((project, index) => (
           <div
             key={index}
-            className="border p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800"
+            className="flex flex-col items-center bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
           >
             <LazyLoadImage
               src={project.image}
               alt={project.title}
               effect="blur"
-              className="mb-4 rounded"
+              className="mb-4 rounded-lg w-full"
             />
-            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{project.title}</h3>
-            <p className="text-gray-900 dark:text-gray-100 mb-4">{project.description}</p>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{project.title}</h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
             <div className="flex items-center space-x-2 mb-4">
               {project.technologies.map((tech, idx) => (
-                <div key={idx} className="flex items-center space-x-1 text-gray-900 dark:text-gray-100">
+                <div key={idx} className="flex items-center space-x-1 text-gray-700 dark:text-gray-300">
                   {tech.icon}
                   <span className="text-sm">{tech.name}</span>
                 </div>
@@ -146,7 +147,7 @@ function Projects() {
             </div>
             <a
               href={project.link}
-              className="text-blue-500 hover:underline"
+              className="inline-block px-4 py-2 mt-2 text-center text-white bg-blue-600 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none transition-colors duration-300"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -155,10 +156,10 @@ function Projects() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-6">
         <button
           onClick={toggleExpand}
-          className="flex items-center text-blue-500 dark:text-blue-400 focus:outline-none transition-transform transform hover:scale-110"
+          className="flex items-center text-blue-600 dark:text-blue-400 focus:outline-none transition-transform transform hover:scale-110"
         >
           {isExpanded ? <FaArrowUp size={24} /> : <FaArrowDown size={24} />}
           <span className="ml-2">{isExpanded ? 'Show Less' : 'Show More'}</span>

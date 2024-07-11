@@ -1,6 +1,6 @@
 import React from "react";
 import DarkModeToggle from "./DarkModeToggle";
-import { FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaCode } from "react-icons/fa";
+import { FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaCode, FaHistory, FaTools } from "react-icons/fa";
 import { smoothScroll } from "../utils/smoothScroll";
 
 function Header() {
@@ -29,6 +29,20 @@ function Header() {
             aria-label="About"
           >
             <FaUser />
+          </button>
+          <button
+            onClick={() => smoothScroll('timeline')}
+            className="hover:text-gray-700 dark:hover:text-gray-400 cursor-pointer transition-transform transform hover:scale-110"
+            aria-label="Timeline"
+          >
+            <FaHistory />
+          </button>
+          <button
+            onClick={() => smoothScroll('skills')}
+            className="hover:text-gray-700 dark:hover:text-gray-400 cursor-pointer transition-transform transform hover:scale-110"
+            aria-label="Skills"
+          >
+            <FaTools />
           </button>
           <button
             onClick={() => smoothScroll('projects')}

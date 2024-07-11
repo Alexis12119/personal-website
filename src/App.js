@@ -4,6 +4,7 @@ import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import { Typewriter } from "react-simple-typewriter";
 import Header from "./components/Header";
 import About from "./components/About";
+import TimeLine from "./components/TimeLine";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
@@ -46,6 +47,9 @@ function App() {
         </LazyLoadComponent>
         <section id="about">
           <About />
+        </section>
+        <section id="timeline">
+          <TimeLine />
         </section>
         <section id="skills">
           <Skills />

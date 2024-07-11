@@ -41,7 +41,7 @@ function Skills() {
   const visibleSkills = isExpanded ? skills : skills.slice(0, 3);
 
   return (
-    <section id="skills" className="p-8 bg-gray-200 dark:bg-gray-800" ref={skillsRef}>
+    <section id="skills" className="p-8 bg-gray-100 dark:bg-gray-900" ref={skillsRef}>
       <div className="flex justify-center">
         <h2 className="relative text-2xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
           <span className="inline-block p-4 border-4 border-current rounded-full">
@@ -56,7 +56,7 @@ function Skills() {
             whileHover={{ scale: 1.05 }}
             className="p-4"
           >
-            <div className="flex flex-col items-center bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div className="flex flex-col items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="text-5xl text-blue-500 mb-2">{skill.icon}</div>
               <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">{skill.name}</p>
               <p className="text-sm text-gray-600 dark:text-gray-400">{skill.level}</p>

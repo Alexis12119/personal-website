@@ -116,7 +116,7 @@ function Projects() {
   const visibleProjects = isExpanded ? projectList : projectList.slice(0, 2);
 
   return (
-    <section id="projects" className="p-8 bg-gray-200 dark:bg-gray-800" ref={projectsRef}>
+    <section id="projects" className="p-8 bg-gray-100 dark:bg-gray-900" ref={projectsRef}>
       <div className="flex justify-center mb-8">
         <h2 className="relative text-3xl font-extrabold text-center text-gray-800 dark:text-gray-100">
           <span className="inline-block p-4 border-4 border-current rounded-full">
@@ -131,7 +131,7 @@ function Projects() {
             whileHover={{ scale: 1.05 }}
             className="p-4"
           >
-            <div className="flex flex-col items-center bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div className="flex flex-col items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <LazyLoadImage
                 src={project.image}
                 alt={project.title}

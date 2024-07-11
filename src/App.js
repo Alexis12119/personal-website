@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import { Typewriter } from "react-simple-typewriter";
 import Header from "./components/Header";
@@ -14,6 +15,14 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <title>Alexis Corporal - Developer Portfolio</title>
+        <meta name="description" content="Hi, I'm Alexis Corporal, a passionate developer. Explore my projects and skills." />
+        <meta name="keywords" content="Alexis Corporal, developer, portfolio, projects, skills, ReactJS, Python, C, C++, C#, programming, student, Go" />
+        <meta property="og:title" content="Alexis Corporal - Developer Portfolio" />
+        <meta property="og:description" content="Hi, I'm Alexis Corporal, a passionate developer. Explore my projects and skills." />
+        {/* <meta property="og:url" content="" /> */}
+      </Helmet>
       <Header />
       <main className="pt-16">
         <LazyLoadComponent>

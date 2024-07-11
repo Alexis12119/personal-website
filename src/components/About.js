@@ -22,6 +22,7 @@ function About() {
           <FontAwesomeIcon
             icon={faLaptopCode}
             className="w-32 h-32 md:w-48 md:h-48 text-gray-900 dark:text-gray-100"
+            alt="Laptop Code Icon"
           />
         </motion.div>
         <motion.div

@@ -12,6 +12,7 @@
     "framer-motion": "^11.2.14",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-helmet": "^6.1.0",
     "react-icons": "^5.2.1",
     "react-lazy-load-image-component": "^1.6.2",
     "react-parallax": "^3.5.1",
@@ -50,6 +51,6 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "tailwind.config.js",
   "keywords": [],
-  "author": "",
+  "author": "Alexis Corporal",
   "license": "ISC"
 }

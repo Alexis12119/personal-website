@@ -1,11 +1,11 @@
 import React from "react";
-import DarkModeToggle from "./DarkModeToggle";
-import { FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaCode, FaHistory, FaTools } from "react-icons/fa";
-import { smoothScroll } from "../utils/smoothScroll";
+import DarkModeToggle from "../utils/DarkModeToggle";
+import { FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaCode, FaTools } from "react-icons/fa";
+import { smoothScroll } from "../utils/SmoothScroll";
 
 function Header() {
   return (
-    <header className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-gray-100 p-4 fixed top-0 left-0 right-0 z-50 shadow-md">
+    <header className="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-4 fixed top-0 left-0 right-0 z-50 shadow-md">
       <nav className="container mx-auto flex justify-between items-center">
         <button
           onClick={() => smoothScroll('home')}
@@ -29,13 +29,6 @@ function Header() {
             aria-label="About"
           >
             <FaUser />
-          </button>
-          <button
-            onClick={() => smoothScroll('timeline')}
-            className="hover:text-gray-700 dark:hover:text-gray-400 cursor-pointer transition-transform transform hover:scale-110"
-            aria-label="Timeline"
-          >
-            <FaHistory />
           </button>
           <button
             onClick={() => smoothScroll('skills')}

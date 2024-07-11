@@ -3,6 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { FaReact, FaNodeJs, FaCss3Alt, FaPython, FaHtml5, FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { DiDjango } from 'react-icons/di';
+import { motion } from 'framer-motion';
 
 function Projects() {
   const projectList = [
@@ -101,23 +102,23 @@ function Projects() {
   const projectsRef = useRef(null);
 
   const toggleExpand = () => {
-    setShouldScroll(isExpanded);
+    setShouldScroll(isExpanded); // Only set shouldScroll to true when collapsing (show less)
     setIsExpanded(!isExpanded);
   };
 
   useEffect(() => {
     if (shouldScroll && projectsRef.current) {
       projectsRef.current.scrollIntoView({ behavior: 'smooth' });
-      setShouldScroll(false);
+      setShouldScroll(false); // Reset shouldScroll after scrolling
     }
   }, [shouldScroll]);
 
   const visibleProjects = isExpanded ? projectList : projectList.slice(0, 2);
 
   return (
-    <section id="projects" className="p-8 bg-gray-200 dark:bg-gray-800" ref={projectsRef}>
+    <section id="projects" className="p-8 bg-gray-100 dark:bg-gray-900" ref={projectsRef}>
       <div className="flex justify-center mb-8">
-        <h2 className="relative text-3xl font-extrabold text-center text-gray-900 dark:text-gray-100">
+        <h2 className="relative text-3xl font-extrabold text-center text-gray-800 dark:text-gray-100">
           <span className="inline-block p-4 border-4 border-current rounded-full">
             Projects
           </span>
@@ -125,35 +126,38 @@ function Projects() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {visibleProjects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            className="flex flex-col items-center bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            whileHover={{ scale: 1.05 }}
+            className="p-4"
           >
-            <LazyLoadImage
-              src={project.image}
-              alt={project.title}
-              effect="blur"
-              className="mb-4 rounded-lg w-full"
-            />
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{project.title}</h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
-            <div className="flex items-center space-x-2 mb-4">
-              {project.technologies.map((tech, idx) => (
-                <div key={idx} className="flex items-center space-x-1 text-gray-700 dark:text-gray-300">
-                  {tech.icon}
-                  <span className="text-sm">{tech.name}</span>
-                </div>
-              ))}
+            <div className="flex flex-col items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <LazyLoadImage
+                src={project.image}
+                alt={project.title}
+                effect="blur"
+                className="mb-4 rounded-lg w-full"
+              />
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">{project.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+              <div className="flex items-center space-x-2 mb-4">
+                {project.technologies.map((tech, idx) => (
+                  <div key={idx} className="flex items-center space-x-1 text-gray-600 dark:text-gray-300">
+                    {tech.icon}
+                    <span className="text-sm">{tech.name}</span>
+                  </div>
+                ))}
+              </div>
+              <a
+                href={project.link}
+                className="inline-block px-4 py-2 mt-2 text-center text-white bg-blue-500 rounded-md hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Project
+              </a>
             </div>
-            <a
-              href={project.link}
-              className="inline-block px-4 py-2 mt-2 text-center text-white bg-blue-600 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none transition-colors duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Project
-            </a>
-          </div>
+          </motion.div>
         ))}
       </div>
       <div className="flex justify-center mt-6">

@@ -39,7 +39,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="p-8 bg-gray-100 dark:bg-gray-900">
+    <section id="contact" className="p-8 bg-gray-200 dark:bg-gray-800">
       <div className="flex justify-center">
         <h2 className="relative text-2xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
           <span className="inline-block p-4 border-4 border-current rounded-full">

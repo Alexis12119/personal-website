@@ -2,7 +2,6 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import ParallaxScroll from "./components/ParallaxScroll";
 import SkillsGrid from "./components/SkillsGrid";
 import Contact from "./components/Contact";
 

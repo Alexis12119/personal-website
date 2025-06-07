@@ -77,9 +77,27 @@ export default function Contact() {
         <FloatingInput
           label="Name"
           name="name"
+          type="text"
           value={form.name}
           onChange={handleChange}
           required
+        />
+        <FloatingInput
+          label="Email"
+          name="email"
+          type="email"
+          value={form.name}
+          onChange={handleChange}
+          required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+        />
+        <FloatingInput
+          label="Honeypot"
+          name="honeypot"
+          type="text"
+          className="hidden"
+          value=""
+          onChange={() => {}}
         />
         <FloatingTextarea
           label="Message"

@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Moon, Sun } from "lucide-react"; // Import icons
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -12,6 +13,42 @@ const navLinks = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState("light"); // State to manage theme
+
+  // Effect to set initial theme from localStorage or system preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.classList.toggle("dark", savedTheme === "dark");
+    } else if (prefersDark.matches) {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    const mediaQueryListener = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem("theme")) {
+        // Only update if no user preference is set
+        setTheme(e.matches ? "dark" : "light");
+        document.documentElement.classList.toggle("dark", e.matches);
+      }
+    };
+
+    prefersDark.addEventListener("change", mediaQueryListener);
+    return () => prefersDark.removeEventListener("change", mediaQueryListener);
+  }, []);
+
+  // Function to toggle theme
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+  };
 
   return (
     <motion.nav
@@ -34,13 +71,38 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
+          {/* Theme Toggle Button for desktop */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-700 transition"
+            aria-label="Toggle dark mode"
+          >
+            {theme === "dark" ? (
+              <Sun size={20} className="text-yellow-400" />
+            ) : (
+              <Moon size={20} className="text-gray-700" />
+            )}
+          </button>
         </div>
 
         {/* Mobile toggle */}
         <div className="md:hidden flex items-center gap-2">
+          {/* Theme Toggle Button for mobile */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-700 transition"
+            aria-label="Toggle dark mode"
+          >
+            {theme === "dark" ? (
+              <Sun size={20} className="text-yellow-400" />
+            ) : (
+              <Moon size={20} className="text-gray-700" />
+            )}
+          </button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="focus:outline-none"
+            aria-label="Open mobile menu"
           >
             <div className="w-6 h-0.5 bg-current mb-1"></div>
             <div className="w-6 h-0.5 bg-current mb-1"></div>

@@ -12,10 +12,12 @@ export default function FloatingInput({
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
+  pattern?: string;
 }) {
   return (
     <div className="relative">
       <input
+        type={type}
         className="
     peer
     w-full
